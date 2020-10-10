@@ -1,17 +1,71 @@
-import React,{memo} from 'react'
+import React,{useState, memo} from 'react'
 import './style.css'
 
-const Table = ({table}) => {
-  console.log("render")
+const SortedColumn = ({children, sortPosition, handleSortDegrease, handleSortIncrease, setSortPosition}) => {
+  return <span
+    onClick={() => {
+      sortPosition ?
+        handleSortDegrease(children) :
+        handleSortIncrease(children)
+
+      setSortPosition(!sortPosition)
+    }}
+  >{children}</span>
+}
+
+
+const Table = ({table, ...sortingHandlers}) => {
+  const [sortPosition, setSortPosition] = useState(true)
+
   return(
     <table>
       <thead>
         <tr>
-          <th>id</th>
-          <th>name</th>
-          <th>description</th>
-          <th>info1</th>
-          <th>info2</th>
+          <th>
+            <SortedColumn
+              sortPosition={sortPosition}
+              setSortPosition={setSortPosition}
+              {...sortingHandlers}
+            >
+              id
+            </SortedColumn>
+          </th>
+          <th>
+            <SortedColumn
+              sortPosition={sortPosition}
+              setSortPosition={setSortPosition}
+              {...sortingHandlers}
+            >
+              name
+            </SortedColumn>
+          </th>
+          <th>
+            <SortedColumn
+              sortPosition={sortPosition}
+              setSortPosition={setSortPosition}
+              {...sortingHandlers}
+            >
+              description
+            </SortedColumn>
+          </th>
+          <th>
+            <SortedColumn
+              sortPosition={sortPosition}
+              setSortPosition={setSortPosition}
+              {...sortingHandlers}
+            >
+              info1
+            </SortedColumn>
+          </th>
+          <th>
+            <SortedColumn
+              sortPosition={sortPosition}
+              setSortPosition={setSortPosition}
+              {...sortingHandlers}
+            >
+              info2
+            </SortedColumn>
+          </th>
           <th></th>
         </tr>
       </thead>
@@ -25,13 +79,13 @@ const Table = ({table}) => {
 }
 
 const RowFormatter = ({row, item}) => <td>{
-    item === 'isChecked' ? <input type="checkbox" checked={row[item]}/> : row[item]
+    item === 'isChecked' ? <input type="checkbox" defaultChecked={!!row[item]}/> : row[item]
   }</td>
 
 
 function areEqual(prevProps, nextProps) {
 
-  if(prevProps.table.length === nextProps.table.length){
+  if(JSON.stringify(prevProps.table) === JSON.stringify(nextProps.table)){
     return true
   } else {
     return false

@@ -34,11 +34,40 @@ function App() {
     setTable(table.concat([newRow]))
   }, [table, name, description, info1, info2])
 
+  const handleSortIncrease = useCallback(field => {
+    const newTable = [...table].sort((a, b) => {
+      if(a[field] < b[field]) {
+        return -1
+      } else if(a[field] > b[field]){
+        return 1
+      } else {
+        return 0
+      }
+    } )
+    setTable(newTable)
+  }, [table])
+
+  const handleSortDegrease = useCallback(field => {
+    const newTable = [...table].sort((a, b) => {
+      if(a[field] < b[field]) {
+        return 1
+      } else if(a[field] > b[field]){
+        return -1
+      } else {
+        return 0
+      }
+    })
+
+    setTable(newTable)
+  }, [table])
+
+  const sortingHandlers = {handleSortIncrease, handleSortDegrease}
+
   return (
     <div className="App">
       <header className="App-header">
         <Form {...formObjects} {...formHandlers} onCreate={handleCreate}/>
-        <Table table={table}/>
+        <Table table={table} {...sortingHandlers}/>
       </header>
     </div>
   );
