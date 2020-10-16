@@ -79,7 +79,7 @@ const Table = ({table, ...sortingHandlers}) => {
 }
 
 const RowFormatter = ({row, item}) => <td>{
-    item === 'isChecked' ? <input type="checkbox" defaultChecked={!!row[item]}/> : row[item]
+    item === 'isChecked' ? <input type="checkbox" defaultChecked={!!row[item]} /> : row[item]
   }</td>
 
 

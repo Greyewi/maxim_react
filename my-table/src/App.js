@@ -1,22 +1,22 @@
-import React, {useState, useCallback} from 'react';
+import React, {useState, useCallback, useEffect} from 'react';
 import './App.css';
 import Table from './components/Table'
 import Form from './components/Form'
-
-const initTable = [
-  {"id": 1, "name": "Anya", "description": "description", "info1": "info", "info2": "info", "isChecked" : false},
-  {"id": 2, "name": "Petya", "description": "description", "info1": "info", "info2": "info", "isChecked" : false},
-  {"id": 3, "name": "Stepan", "description": "description", "info1": "info", "info2": "info", "isChecked" : false},
-  {"id": 4, "name": "Vova", "description": "description", "info1": "info", "info2": "info", "isChecked" : false},
-  {"id": 5, "name": "Vasya", "description": "description", "info1": "info", "info2": "info", "isChecked" : false}
-]
+import Actions from "./components/Actions"
 
 function App() {
-  const [table, setTable] = useState(initTable)
+  const [table, setTable] = useState([])
+  const [filterTable, setFilterTable] = useState(null)
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
   const [info1, setInfo1] = useState('')
   const [info2, setInfo2] = useState('')
+
+  useEffect(() => {
+    fetch('https://gist.githubusercontent.com/Greyewi/9929061c594ef7a689d21e5c72c96f3b/raw/f7519c95f4c00b165e8fc39cba7fb07f15c61fdb/initial_Table.json')
+      .then(data => data.json())
+      .then(data => setTable(data))
+  }, [])
 
   const formObjects = {name, description, info1, info2}
   const formHandlers = {setName, setDescription, setInfo1, setInfo2}
@@ -35,7 +35,9 @@ function App() {
   }, [table, name, description, info1, info2])
 
   const handleSortIncrease = useCallback(field => {
-    const newTable = [...table].sort((a, b) => {
+    const [sortTable, setSortTable] = getCurrentTable(table, setTable, filterTable, setFilterTable)
+
+    const newTable = [...sortTable].sort((a, b) => {
       if(a[field] < b[field]) {
         return -1
       } else if(a[field] > b[field]){
@@ -44,11 +46,13 @@ function App() {
         return 0
       }
     } )
-    setTable(newTable)
-  }, [table])
+    setSortTable(newTable)
+  }, [table, filterTable])
 
   const handleSortDegrease = useCallback(field => {
-    const newTable = [...table].sort((a, b) => {
+    const [sortTable, setSortTable] = getCurrentTable(table, setTable, filterTable, setFilterTable)
+
+    const newTable = [...sortTable].sort((a, b) => {
       if(a[field] < b[field]) {
         return 1
       } else if(a[field] > b[field]){
@@ -58,19 +62,29 @@ function App() {
       }
     })
 
-    setTable(newTable)
-  }, [table])
+    setSortTable(newTable)
+  }, [table, filterTable])
 
   const sortingHandlers = {handleSortIncrease, handleSortDegrease}
+
+  const handleFilterData = useCallback((event, field) => {
+    const {target : {value}} = event
+    const newTable = [...table].filter(f => f[field].indexOf(value) >= 0)
+    setFilterTable(newTable)
+  }, [table])
 
   return (
     <div className="App">
       <header className="App-header">
         <Form {...formObjects} {...formHandlers} onCreate={handleCreate}/>
-        <Table table={table} {...sortingHandlers}/>
+        <Table table={getCurrentTable(table, setTable, filterTable, setFilterTable)[0]} {...sortingHandlers}/>
+        <Actions handleFilterData={handleFilterData}/>
       </header>
     </div>
   );
 }
+
+const getCurrentTable = (table, setTable, filterTable, setFilterTable) =>
+  filterTable && filterTable.length ? [filterTable, setFilterTable] : [table, setTable]
 
 export default App;
