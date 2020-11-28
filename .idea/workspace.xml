@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4113214c-09de-4ab4-9b4c-e5a61bb3b3d5" name="Default Changelist" comment="" />
+    <list default="true" id="e3bdea14-a5dd-42ce-b02d-b8c35606e3ab" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-table/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-table/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-table/src/components/HandmadeSwitch/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-table/src/components/HandmadeSwitch/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-table/src/components/HandmadeSwitch/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/my-table/src/components/HandmadeSwitch/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-table/src/components/RadioButtonsBlock/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-table/src/components/RadioButtonsBlock/index.jsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,6 +80,9 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="828" y="182" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606552801956">
