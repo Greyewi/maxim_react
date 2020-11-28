@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from "prop-types";
 import "./style.css"
 
 const HandmadeSwitch = () => {
@@ -14,10 +13,5 @@ const HandmadeSwitch = () => {
     )
 }
 
-HandmadeSwitch.propTypes = {
-    selected: PropTypes.bool.isRequired,
-    label: PropTypes.array.isRequired,
-    onChange: PropTypes.func.isRequired,
-}
 
 export default HandmadeSwitch;
