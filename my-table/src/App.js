@@ -3,6 +3,9 @@ import './App.css';
 import Table from './components/Table'
 import Form from './components/Form'
 import Actions from "./components/Actions"
+import RadioButtonsBlock from "./components/RadioButtonsBlock";
+
+
 
 function App() {
   const [table, setTable] = useState([])
@@ -11,6 +14,7 @@ function App() {
   const [description, setDescription] = useState('')
   const [info1, setInfo1] = useState('')
   const [info2, setInfo2] = useState('')
+  const [acceptance, setAcceptance] = useState(false)
 
   useEffect(() => {
     fetch('https://gist.githubusercontent.com/Greyewi/9929061c594ef7a689d21e5c72c96f3b/raw/f7519c95f4c00b165e8fc39cba7fb07f15c61fdb/initial_Table.json')
@@ -20,6 +24,10 @@ function App() {
 
   const formObjects = {name, description, info1, info2}
   const formHandlers = {setName, setDescription, setInfo1, setInfo2}
+
+  const handleRadioButtonsBlock = (acceptance)=>{
+
+  };
 
   const handleCreate = useCallback(() => {
     const newRow = {
@@ -80,6 +88,12 @@ function App() {
         <Table table={getCurrentTable(table, setTable, filterTable, setFilterTable)[0]} {...sortingHandlers}/>
         <Actions handleFilterData={handleFilterData}/>
       </header>
+      <br/>
+      <br/>
+
+      <RadioButtonsBlock onChange={handleRadioButtonsBlock}
+                         selected={acceptance}
+                         label="something"/>
     </div>
   );
 }
