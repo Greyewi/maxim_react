@@ -3,19 +3,25 @@ import PropTypes from 'prop-types';
 import React from 'react'
 
 
-const RadioButtonsBlock = ({label,selected,onChange}) => {
+const RadioButtonsBlock = ({labels,selected,onChange}) => {
     
 const handleChange= (event)=>{
-    const{selected} = event.target;
-    onChange(selected);
+    const{checked} = event.target;
+    onChange(checked);
 }
-    return(
-        <div>
+const listItems = labels.map(label =>
+            <div >
             <input type="checkbox"
                    defaultChecked={selected}
                    value={selected}
                    onChange={handleChange}/>
-                   <label >{label}</label>
+                {label}
+            </div>
+
+)
+    return(
+        <div>
+            {listItems}
         </div>
 
 )
