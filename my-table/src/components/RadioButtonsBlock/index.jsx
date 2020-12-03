@@ -20,7 +20,7 @@ const RadioButtonsBlock = ({labels, defaultChecked = []}) => {
   }
 
   return(
-    <div>
+    <div color="white">
       {labels.map((label, key) =>
         <div key={key}>
           <input
@@ -38,9 +38,8 @@ const RadioButtonsBlock = ({labels, defaultChecked = []}) => {
 }
 
 RadioButtonsBlock.propTypes = {
-    selected: PropTypes.bool.isRequired,
-    label: PropTypes.array.isRequired,
-    onChange:PropTypes.func.isRequired,
+    label: PropTypes.array,
+    onChange:PropTypes.func,
 }
 
 

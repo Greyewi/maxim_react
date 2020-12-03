@@ -24,6 +24,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
   <component name="ProjectId" id="1kuY59931eUaGYHM5smWLn5tf99" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -32,6 +38,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -40,7 +47,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="aws" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="npm.start">
@@ -67,7 +74,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4113214c-09de-4ab4-9b4c-e5a61bb3b3d5" name="Default Changelist" comment="" />
+      <changelist id="e3bdea14-a5dd-42ce-b02d-b8c35606e3ab" name="Default Changelist" comment="" />
       <created>1606551760894</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -75,6 +82,10 @@
       <workItem from="1606551763799" duration="892000" />
       <workItem from="1606552691031" duration="2272000" />
       <workItem from="1606555008666" duration="9825000" />
+      <workItem from="1606583571096" duration="382000" />
+      <workItem from="1606583979021" duration="2326000" />
+      <workItem from="1606989910966" duration="903000" />
+      <workItem from="1606990954326" duration="7797000" />
     </task>
     <servers />
   </component>
@@ -93,25 +104,37 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="1154" y="232" key="#com.intellij.ide.macro.MacrosDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1606552401621" />
-    <state width="916" height="282" key="GridCell.Tab.0.bottom" timestamp="1606559448148">
+    <state x="1120" y="263" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1606991018523">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="916" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1606559448148" />
-    <state width="916" height="282" key="GridCell.Tab.0.center" timestamp="1606559448148">
+    <state x="1120" y="263" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1606991018523" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1606996445791">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="916" height="282" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1606559448148" />
-    <state width="916" height="282" key="GridCell.Tab.0.left" timestamp="1606559448148">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1606996445791" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1606996445791">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="916" height="282" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1606559448148" />
-    <state width="916" height="282" key="GridCell.Tab.0.right" timestamp="1606559448148">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1606996445791" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1606996445790">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="916" height="282" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1606559448148" />
-    <state x="926" y="171" key="SettingsEditor" timestamp="1606554980902">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1606996445790" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1606996445791">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="926" y="171" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1606554980902" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1606996445791" />
+    <state x="926" y="171" key="SettingsEditor" timestamp="1606584023248">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="926" y="171" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1606584023248" />
+    <state x="1219" y="372" key="cloudConfig.PluginsDialog" timestamp="1606583754888">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="1219" y="372" key="cloudConfig.PluginsDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1606583754888" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

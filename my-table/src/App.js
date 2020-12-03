@@ -5,6 +5,7 @@ import Form from './components/Form'
 import Actions from "./components/Actions"
 import RadioButtonsBlock from "./components/RadioButtonsBlock";
 import HandmadeSwitch from "./components/HandmadeSwitch";
+import SelectComponentUsinDiv from "./components/SelectComponentUsingDiv";
 
 function App() {
     const labels = ["first", "second", "third"];
@@ -14,6 +15,7 @@ function App() {
     const [description, setDescription] = useState('')
     const [info1, setInfo1] = useState('')
     const [info2, setInfo2] = useState('')
+
 
     useEffect(() => {
         fetch('https://gist.githubusercontent.com/Greyewi/9929061c594ef7a689d21e5c72c96f3b/raw/f7519c95f4c00b165e8fc39cba7fb07f15c61fdb/initial_Table.json')
@@ -84,6 +86,8 @@ function App() {
                 <Actions handleFilterData={handleFilterData}/>
                 <RadioButtonsBlock labels={labels}/>
                 <HandmadeSwitch name="answer" defaultValue/>
+                <br/>
+                <SelectComponentUsinDiv labels={labels}/>
             </header>
         </div>
     );
