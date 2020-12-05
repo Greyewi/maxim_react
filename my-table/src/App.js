@@ -5,7 +5,13 @@ import Form from './components/Form'
 import Actions from "./components/Actions"
 import RadioButtonsBlock from "./components/RadioButtonsBlock";
 import HandmadeSwitch from "./components/HandmadeSwitch";
-import SelectComponentUsinDiv from "./components/SelectComponentUsingDiv";
+import SelectComponentUsingDiv from "./components/SelectComponentUsingDiv";
+
+import {
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 
 function App() {
     const labels = ["first", "second", "third"];
@@ -81,13 +87,38 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <Form {...formObjects} {...formHandlers} onCreate={handleCreate}/>
-                <Table table={getCurrentTable(table, setTable, filterTable, setFilterTable)[0]} {...sortingHandlers}/>
-                <Actions handleFilterData={handleFilterData}/>
-                <RadioButtonsBlock labels={labels}/>
-                <HandmadeSwitch name="answer" defaultValue/>
-                <br/>
-                <SelectComponentUsinDiv labels={labels}/>
+                <div>
+                    <Link to="/table">Table</Link>
+                </div>
+                <div>
+                    <Link to="/ui">UI</Link>
+                </div>
+                <div>
+                    <Link to="/ui/select">UI Select</Link>
+                </div>
+                <Switch>
+                    <Route path="/table" component={() => {
+                        return (
+                          <div>
+                              <Form {...formObjects} {...formHandlers} onCreate={handleCreate}/>
+                              <Table table={getCurrentTable(table, setTable, filterTable, setFilterTable)[0]} {...sortingHandlers}/>
+                              <Actions handleFilterData={handleFilterData}/>
+                          </div>
+                        )
+                    }}/>
+                    <Route exact path="/ui">
+                        <div>
+                            <RadioButtonsBlock labels={labels}/>
+                            <HandmadeSwitch name="answer" defaultValue/>
+                        </div>
+                    </Route>
+                    <Route path="/ui/select">
+                        <div>
+                            <SelectComponentUsingDiv labels={labels}/>
+                        </div>
+                    </Route>
+                    <Route path="*">404</Route>
+                </Switch>
             </header>
         </div>
     );

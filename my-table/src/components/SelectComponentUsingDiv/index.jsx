@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 
 const SelectComponentUsingDiv = ({labels}) => {
@@ -12,6 +12,10 @@ const SelectComponentUsingDiv = ({labels}) => {
         setIsOpen(false);
         console.log(selectedOption);
     };
+
+    useEffect(() => {
+        setSelectedOption(labels[0])
+    }, [labels])
 
     return (
         <div style={{borderStyle:"solid 3px", borderBlockColor:"black",borderRadius:"5px", backgroundColor: 'white', color:"black"}}>
