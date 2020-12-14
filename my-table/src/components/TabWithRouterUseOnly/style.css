@@ -1,0 +1,6 @@
+.inline {
+    display: inline-block;
+    border: 1px solid red;
+    color: #61dafb;
+    margin:10px;
+}

@@ -6,12 +6,14 @@ import Actions from "./components/Actions"
 import RadioButtonsBlock from "./components/RadioButtonsBlock";
 import HandmadeSwitch from "./components/HandmadeSwitch";
 import SelectComponentUsingDiv from "./components/SelectComponentUsingDiv";
+import { BrowserRouter as Router } from 'react-router-dom'
 
 import {
     Switch,
     Route,
     Link
 } from "react-router-dom";
+import TabWithUsingRouterOnly from "./components/TabWithRouterUseOnly";
 
 function App() {
     const labels = ["first", "second", "third"];
@@ -21,7 +23,19 @@ function App() {
     const [description, setDescription] = useState('')
     const [info1, setInfo1] = useState('')
     const [info2, setInfo2] = useState('')
-
+    const forTab = [{
+        id:0,
+        label:"firstLabel",
+        tabContent:"someFirstContent"
+    },{
+        id:1,
+        label:"secondLabel",
+        tabContent:"someSecondContent"
+    },{
+        id:2,
+        label:"thirdLabel",
+        tabContent:"someThirdContent"
+    }]
 
     useEffect(() => {
         fetch('https://gist.githubusercontent.com/Greyewi/9929061c594ef7a689d21e5c72c96f3b/raw/f7519c95f4c00b165e8fc39cba7fb07f15c61fdb/initial_Table.json')
@@ -99,11 +113,12 @@ function App() {
                 <Switch>
                     <Route path="/table" component={() => {
                         return (
-                          <div>
-                              <Form {...formObjects} {...formHandlers} onCreate={handleCreate}/>
-                              <Table table={getCurrentTable(table, setTable, filterTable, setFilterTable)[0]} {...sortingHandlers}/>
-                              <Actions handleFilterData={handleFilterData}/>
-                          </div>
+                            <div>
+                                <Form {...formObjects} {...formHandlers} onCreate={handleCreate}/>
+                                <Table
+                                    table={getCurrentTable(table, setTable, filterTable, setFilterTable)[0]} {...sortingHandlers}/>
+                                <Actions handleFilterData={handleFilterData}/>
+                            </div>
                         )
                     }}/>
                     <Route exact path="/ui">
@@ -119,6 +134,10 @@ function App() {
                     </Route>
                     <Route path="*">404</Route>
                 </Switch>
+                <Router>
+                    <TabWithUsingRouterOnly forTab={forTab}/>
+                </Router>
+
             </header>
         </div>
     );
